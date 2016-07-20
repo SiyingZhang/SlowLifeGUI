@@ -8,8 +8,8 @@ public class Cell extends JButton {
 
     private int _maxSize = 10000;
     
+    //Delete super() method
     public Cell() {
-	super(" ");
 	setFont(new Font("Courier", Font.PLAIN, 12));
 	addActionListener(new CellButtonListener());
     }
