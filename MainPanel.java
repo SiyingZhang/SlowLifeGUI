@@ -15,8 +15,6 @@ public class MainPanel extends JPanel {
 
     private int _maxCount = 10000;
 
-    public int _r = 1000;
-    
     private boolean _running = false;
 
     public int getCellsSize() {
@@ -31,20 +29,7 @@ public class MainPanel extends JPanel {
 	return _cells;
     }
 
-    private int convertToInt(int x) {
-	int c = 0;
-	String padding = "0";
-	while (c < _r) {
-	    String l = new String("0");
-	    padding += l;
-	    c++;
-	}
-	
-	String n = padding + String.valueOf(x);
-	int q = Integer.parseInt(n);
-	return q;
-    }
-    
+	//Delete convertToInt9()    
     private int getNumNeighbors(int x, int y) {
 	int size = _size;
 	int leftX = (x - 1) % size;
@@ -218,20 +203,16 @@ public class MainPanel extends JPanel {
     /**
      * Run the system continuously.
      */
-
+    //delete _r related operation
     public void runContinuous() {
 	_running = true;
 	while (_running) {
 	    System.out.println("Running...");
-	    int origR = _r;
+
 	    try {
 		Thread.sleep(20);
 	    } catch (InterruptedException iex) { }
-	    for (int j=0; j < _maxCount; j++) {
-	    	_r += (j % _size) % _maxCount;
-		_r += _maxCount;
-	    }
-	    _r = origR;
+
 	    backup();
 	    calculateNextIteration();
 	}
